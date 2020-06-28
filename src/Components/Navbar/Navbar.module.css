@@ -1,0 +1,28 @@
+.nav {
+  grid-area: n;
+  background-color: #8fbc8f;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  text-align: left;
+  height: 55%;
+}
+.item {
+  color: whitesmoke;
+  text-decoration: none;
+}
+.item a.activeLink {
+  color: black;
+}
+
+.item a {
+  align-items: center;
+
+  text-decoration: none;
+  transition: background 0.2s linear;
+  color: white;
+}
+.item a:hover {
+  background-color: #2f4f4f;
+  border-radius: 3px;
+}
