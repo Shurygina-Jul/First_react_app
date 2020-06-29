@@ -1,0 +1,22 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+.nav {
+  color: green;
+  text-decoration: none;
+}
+.nav:hover {
+  background-color: greenyellow;
+  border-radius: 3px;
+}
+.dialogsItems {
+  padding: 10px;
+}
+
+.dialog.active {
+  color: green;
+}
+.messages {
+  padding: 10px;
+}

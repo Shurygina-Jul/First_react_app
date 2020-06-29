@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Settings.module.css";
 const Settings = () => {
-  return <div>Music</div>;
+  return <div>Settings</div>;
 };
 export default Settings;
