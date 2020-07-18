@@ -3,7 +3,7 @@ import s from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 import Post from "./MyPosts/Post/Post";
-import { updateNewPostText } from "../../Redux/State";
+import { updateNewPostText } from "../../Redux/store";
 const Profile = (props) => {
   return (
     <div>

@@ -8,7 +8,7 @@ import { Route, BrowserRouter } from "react-router-dom";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import { updateNewPostText } from "./Redux/State";
+import { updateNewPostText } from "./Redux/store";
 
 const App = (props) => {
   return (
@@ -29,10 +29,10 @@ const App = (props) => {
                 dispatch={props.dispatch}
               />
             )}
-          />
-          <Route path="/news" render={() => <News />} />
-          <Route path="/music" render={() => <Music />} />
-          <Route path="/settings" render={() => <Settings />} />
+          />{" "}
+          <Route path="/news" render={() => <News />} />{" "}
+          <Route path="/music" render={() => <Music />} />{" "}
+          <Route path="/settings" render={() => <Settings />} />{" "}
         </div>
       </div>
     </BrowserRouter>
