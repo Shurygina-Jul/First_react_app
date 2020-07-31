@@ -11,6 +11,11 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
+  getProfile(userId) {
+    return instance.get(`profile/` + userId).then((response) => {
+      return response.data;
+    });
+  },
   getUsers(currentPage = 1, pageSize = 10) {
     return instance
       .get(`users?page=${currentPage}&count=${pageSize}`)
@@ -18,29 +23,9 @@ export const usersAPI = {
         return response.data;
       });
   },
-  getProfile(userId) {
-    return instance.get(`profile/` + userId).then((response) => {
+  getHeaders() {
+    return instance.get(`auth/me`).then((response) => {
       return response.data;
     });
   },
 };
-
-// export const getUsers = (currentPage = 1, pageSize = 10) => {
-//   return instance
-//     .get(`users?page=${currentPage}&count=${pageSize}`)
-//     .then((response) => {
-//       return response.data;
-//     });
-// };
-
-// export const getProfile = (userId) => {
-//   return axios.get(baseUrl + `/profile/` + userId).then((response) => {
-//     return response.data;
-//   });
-// };
-
-// export const getProfile = (userId) => {
-//   return instance.get(`profile/` + userId).then((response) => {
-//     return response.data;
-//   });
-// };
