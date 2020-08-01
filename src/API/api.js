@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import { unfollow } from "../Redux/users-reduser";
 
 //const baseUrl = "https://social-network.samuraijs.com/api/1.0";
 
@@ -23,6 +24,13 @@ export const usersAPI = {
         return response.data;
       });
   },
+  unfollow(userTd) {
+    return instance.delete(`follow/${userTd}`).then;
+  },
+  follow(userId) {
+    return instance.post(`follow/${userId}`);
+  },
+
   getHeaders() {
     return instance.get(`auth/me`).then((response) => {
       return response.data;

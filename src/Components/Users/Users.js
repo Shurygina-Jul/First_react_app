@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import * as axios from "axios";
 import { toggleFollowigProgress } from "../../Redux/users-reduser";
 import { followingInProgress } from "../../Redux/users-reduser";
+import { usersAPI } from "../../API/api";
 
 // let Users = (props) => {
 //   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -154,23 +155,7 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    axios
-                      .delete(
-                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                        {
-                          withCredentials: true,
-                          headers: {
-                            "API-KEY": "5772b158-0a03-4b5b-b874-a53013c29b2d",
-                          },
-                        }
-                      )
-                      .then((response) => {
-                        if (response.data.resultCode == 0) {
-                          props.unfollow(u.id);
-                        }
-                        props.toggleFollowigProgress(false, u.id);
-                      });
+                    props.unfollow(u.id);
                   }}
                 >
                   Unfollow
@@ -179,24 +164,7 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    axios
-                      .post(
-                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                        {},
-                        {
-                          withCredentials: true,
-                          headers: {
-                            "API-KEY": "5772b158-0a03-4b5b-b874-a53013c29b2d",
-                          },
-                        }
-                      )
-                      .then((response) => {
-                        if (response.data.resultCode == 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
+                    props.follow(u.id);
                   }}
                 >
                   Follow
