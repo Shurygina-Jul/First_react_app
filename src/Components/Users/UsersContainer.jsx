@@ -10,7 +10,6 @@ import { toggleFollowingProgress } from "./../../Redux/users-reduser";
 
 import Users from "./Users";
 import Preloader from "../Common/Preloader/Preloader";
-import { withAuthRedirect } from "./../../HOC/withAuthRedirect";
 import { compose } from "redux";
 import {
   getUsers,
@@ -30,6 +29,7 @@ class UsersContainer extends React.Component {
     this.props.getUsers(pageNumber, this.props.pageSize);
   };
   render() {
+    console.log("USERS");
     return (
       <>
         {this.props.isFetching ? <Preloader /> : null}
@@ -60,6 +60,7 @@ class UsersContainer extends React.Component {
 // };
 
 let mapStateToProps = (state) => {
+  console.log("mapStateToProps USERS");
   return {
     users: getUsers(state),
     pageSize: getPageSize(state),
