@@ -5,8 +5,8 @@ import ProfileStatus from "./ProfileStatus";
 import { updateStatus } from "./../../../../Redux/profile-reducer";
 import ProfileStatusWithHooks from "./ProfileStatusWithHoocs";
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+  if (!profile) {
     return <Preloader />;
   }
 
@@ -16,11 +16,8 @@ const ProfileInfo = (props) => {
         <img src="https://pbs.twimg.com/profile_banners/912245600997007360/1533995921/1500x500" />
       </div> */}
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
-        <ProfileStatusWithHooks
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />
+        <img src={profile.photos.large} />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
     </div>
   );
