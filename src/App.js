@@ -42,21 +42,19 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, { initializeApp })
 )(App);
 
-{
-  /* <div className="app-wrapper">
-      //   <HeaderContainer />
-      //   <Navbar />
-      //   <div className="app-wrapper-content">
-      //     <Route path="/dialogs" render={() => <DialogsContainer />} />
-      //     <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-      //     <Route path="/users" render={() => <UsersContainer />} />
-      //     <Route path="/login" render={() => <Login />} />
-      //   </div>
-      // </div>
-    ); */
-}
+const SamuraiJSApp = (props) => {
+  return (
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  );
+};
+
+export default SamuraiJSApp;
