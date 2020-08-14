@@ -2,8 +2,6 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../asses/images/avatar.jpg";
 import { NavLink } from "react-router-dom";
-import { toggleFollowigProgress } from "../../Redux/users-reduser";
-import { followingInProgress } from "../../Redux/users-reduser";
 
 let User = ({ user, followingInProgress, unfollow, follow }) => {
   return (
