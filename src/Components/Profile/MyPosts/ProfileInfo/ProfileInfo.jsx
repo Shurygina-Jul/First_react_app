@@ -4,11 +4,17 @@ import Preloader from "../../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
 import { updateStatus } from "./../../../../Redux/profile-reducer";
 import ProfileStatusWithHooks from "./ProfileStatusWithHoocs";
+import userPhoto from "../../../../asses/images/avatar.jpg";
 
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
   if (!profile) {
     return <Preloader />;
   }
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0]);
+    }
+  };
 
   return (
     <div>
@@ -16,32 +22,11 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
         <img src="https://pbs.twimg.com/profile_banners/912245600997007360/1533995921/1500x500" />
       </div> */}
       <div className={s.descriptionBlock}>
-        <img src={profile.photos.large} />
+        <img src={profile.photos.large || userPhoto} className={s.mainPhoto} />
+        {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
         <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       </div>
     </div>
   );
 };
 export default ProfileInfo;
-
-// const ProfileInfo = (props) => {
-//   if (!props.profile) {
-//     return <Preloader />;
-//   }
-//   return (
-//     <div>
-//       {/*  <div>
-//               <img
-//                   src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350'/>
-//           </div>*/}
-//       <div className={s.descriptionBlock}>
-//         <img src={props.profile.photos.large} />
-//         <ProfileStatus
-//           status={props.status}
-//           updateStatus={props.updateStatus}
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-// export default ProfileInfo;

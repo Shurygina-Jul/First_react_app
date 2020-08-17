@@ -36,3 +36,7 @@
   text-align: justify;
   color: gray;
 }
+.mainPhoto {
+  max-width: 150 px;
+  background: white;
+}
